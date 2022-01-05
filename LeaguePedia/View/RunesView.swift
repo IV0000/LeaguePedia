@@ -60,13 +60,12 @@ struct RunesView: View {
                     })
                 }
                 Spacer()
-            }
-            .navigationTitle("Runes")
+            
             .onAppear{
                 runeManager.loadRunesData()
             }
            // Spacer()
-            
+            }
         }
     }
 }

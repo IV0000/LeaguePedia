@@ -23,7 +23,7 @@ struct ChampionsView: View {
     }
     
     var body: some View {
-        NavigationView{
+        VStack{
             ZStack{
                 List(searchResults, id:\.self){champs in
                     NavigationLink(destination: ChampDetailView(champ:champs), label:{
@@ -59,10 +59,10 @@ struct ChampionsView: View {
                     
                 }
                 
-            }.navigationTitle("Champions")
-            .listStyle(.plain)
-                .searchable(text: $searchText)
-        }
+            } .listStyle(.plain)
+            .searchable(text: $searchText) //SEARCHBARD DISAPPEARING
+               
+       }
             .onAppear{
                 manager.loadData()}
     }
