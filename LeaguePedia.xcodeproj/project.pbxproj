@@ -8,25 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		FF6F0D8927839716009DCD1B /* LeaguePediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D8827839716009DCD1B /* LeaguePediaApp.swift */; };
-		FF6F0D8B27839716009DCD1B /* ChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D8A27839716009DCD1B /* ChampionView.swift */; };
+		FF6F0D8B27839716009DCD1B /* ChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D8A27839716009DCD1B /* ChampionsView.swift */; };
 		FF6F0D8D27839718009DCD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6F0D8C27839718009DCD1B /* Assets.xcassets */; };
 		FF6F0D9027839718009DCD1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6F0D8F27839718009DCD1B /* Preview Assets.xcassets */; };
 		FF6F0D97278397BE009DCD1B /* ChampDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D96278397BE009DCD1B /* ChampDetailView.swift */; };
 		FF6F0D9927839815009DCD1B /* ChampionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D9827839815009DCD1B /* ChampionModel.swift */; };
 		FF6F0D9B27839862009DCD1B /* ChampionRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D9A27839862009DCD1B /* ChampionRetrieve.swift */; };
 		FF6F0D9D2783988A009DCD1B /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D9C2783988A009DCD1B /* CacheAsyncImage.swift */; };
+		FF7E4B622783AE55002D4CBB /* RunesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E4B612783AE55002D4CBB /* RunesModel.swift */; };
+		FF7E4B642783B138002D4CBB /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E4B632783B138002D4CBB /* RunesView.swift */; };
+		FF7E4B662783B333002D4CBB /* RunesRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */; };
+		FFDB27C12784E1AA00755958 /* RunesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDB27C02784E1AA00755958 /* RunesDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FF6F0D8527839716009DCD1B /* LeaguePedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaguePedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF6F0D8827839716009DCD1B /* LeaguePediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguePediaApp.swift; sourceTree = "<group>"; };
-		FF6F0D8A27839716009DCD1B /* ChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionView.swift; sourceTree = "<group>"; };
+		FF6F0D8A27839716009DCD1B /* ChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsView.swift; sourceTree = "<group>"; };
 		FF6F0D8C27839718009DCD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF6F0D8F27839718009DCD1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF6F0D96278397BE009DCD1B /* ChampDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampDetailView.swift; sourceTree = "<group>"; };
 		FF6F0D9827839815009DCD1B /* ChampionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionModel.swift; sourceTree = "<group>"; };
 		FF6F0D9A27839862009DCD1B /* ChampionRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionRetrieve.swift; sourceTree = "<group>"; };
 		FF6F0D9C2783988A009DCD1B /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
+		FF7E4B612783AE55002D4CBB /* RunesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesModel.swift; sourceTree = "<group>"; };
+		FF7E4B632783B138002D4CBB /* RunesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
+		FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesRetrieve.swift; sourceTree = "<group>"; };
+		FFDB27C02784E1AA00755958 /* RunesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				FF6F0D9827839815009DCD1B /* ChampionModel.swift */,
+				FF7E4B612783AE55002D4CBB /* RunesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,8 +98,10 @@
 		FF6F0D9F278398D3009DCD1B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF6F0D8A27839716009DCD1B /* ChampionView.swift */,
+				FF6F0D8A27839716009DCD1B /* ChampionsView.swift */,
 				FF6F0D96278397BE009DCD1B /* ChampDetailView.swift */,
+				FF7E4B632783B138002D4CBB /* RunesView.swift */,
+				FFDB27C02784E1AA00755958 /* RunesDetail.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				FF6F0D9A27839862009DCD1B /* ChampionRetrieve.swift */,
+				FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -182,9 +194,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6F0D97278397BE009DCD1B /* ChampDetailView.swift in Sources */,
-				FF6F0D8B27839716009DCD1B /* ChampionView.swift in Sources */,
+				FF6F0D8B27839716009DCD1B /* ChampionsView.swift in Sources */,
+				FF7E4B642783B138002D4CBB /* RunesView.swift in Sources */,
+				FF7E4B662783B333002D4CBB /* RunesRetrieve.swift in Sources */,
 				FF6F0D9B27839862009DCD1B /* ChampionRetrieve.swift in Sources */,
 				FF6F0D9927839815009DCD1B /* ChampionModel.swift in Sources */,
+				FFDB27C12784E1AA00755958 /* RunesDetail.swift in Sources */,
+				FF7E4B622783AE55002D4CBB /* RunesModel.swift in Sources */,
 				FF6F0D8927839716009DCD1B /* LeaguePediaApp.swift in Sources */,
 				FF6F0D9D2783988A009DCD1B /* CacheAsyncImage.swift in Sources */,
 			);
@@ -323,6 +339,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -352,6 +369,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

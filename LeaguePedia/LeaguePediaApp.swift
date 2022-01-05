@@ -11,7 +11,8 @@ import SwiftUI
 struct LeaguePediaApp: App {
     var body: some Scene {
         WindowGroup {
-            ChampionView()
+            RunesView()
+            
         }
     }
 }

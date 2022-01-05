@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ChampionView: View {
+struct ChampionsView: View {
     
-    @ObservedObject var manager = ChampionClass()
+    @StateObject var manager = ChampionClass()
     @State private var searchText = ""
     
     //For SearchField
@@ -70,6 +70,6 @@ struct ChampionView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ChampionView()
+        ChampionsView()
     }
 }
