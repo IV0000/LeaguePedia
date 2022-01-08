@@ -20,6 +20,7 @@
 		FF7E4B662783B333002D4CBB /* RunesRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */; };
 		FFDB27C12784E1AA00755958 /* RunesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDB27C02784E1AA00755958 /* RunesDetail.swift */; };
 		FFFEF63A2785CF4D00E6B051 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF6392785CF4D00E6B051 /* TabView.swift */; };
+		FFFEF63C2788ED3D00E6B051 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF63B2788ED3D00E6B051 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesRetrieve.swift; sourceTree = "<group>"; };
 		FFDB27C02784E1AA00755958 /* RunesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesDetail.swift; sourceTree = "<group>"; };
 		FFFEF6392785CF4D00E6B051 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		FFFEF63B2788ED3D00E6B051 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				FF6F0D96278397BE009DCD1B /* ChampDetailView.swift */,
 				FF7E4B632783B138002D4CBB /* RunesView.swift */,
 				FFDB27C02784E1AA00755958 /* RunesDetail.swift */,
+				FFFEF63B2788ED3D00E6B051 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				FF6F0D9927839815009DCD1B /* ChampionModel.swift in Sources */,
 				FFDB27C12784E1AA00755958 /* RunesDetail.swift in Sources */,
 				FF7E4B622783AE55002D4CBB /* RunesModel.swift in Sources */,
+				FFFEF63C2788ED3D00E6B051 /* SettingsView.swift in Sources */,
 				FF6F0D8927839716009DCD1B /* LeaguePediaApp.swift in Sources */,
 				FF6F0D9D2783988A009DCD1B /* CacheAsyncImage.swift in Sources */,
 			);

@@ -23,12 +23,13 @@ struct ChampionsView: View {
     }
     
     var body: some View {
+        NavigationView{
         VStack{
             ZStack{
                 List(searchResults, id:\.self){champs in
                     NavigationLink(destination: ChampDetailView(champ:champs), label:{
                         HStack{
-                            CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/"+(champs.id)+".png")! ){phase in
+                            CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){phase in
                                 if let image = phase.image {
                                     image.resizable()
                                         .clipped()
@@ -62,9 +63,10 @@ struct ChampionsView: View {
             } .listStyle(.plain)
             .searchable(text: $searchText) //SEARCHBARD DISAPPEARING
                
-       }
+        }.navigationTitle("Champions")
             .onAppear{
                 manager.loadData()}
+        }
     }
 }
 

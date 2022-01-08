@@ -138,10 +138,12 @@ struct ChampDetailView: View {
                     HStack{
                         
                         Text("Attack")
+                            .fixedSize()
                         Spacer()
                         ProgressBar(value:$progressValue)
                             .frame(width: 250)
                         Text(String(champ.info.attack))
+                            .fixedSize()
                     }.onAppear{
                         progressValue = Float(champ.info.attack)/10
                         
@@ -151,10 +153,12 @@ struct ChampDetailView: View {
                     
                     HStack{
                         Text("Defense")
+                            .fixedSize()
                         Spacer()
                         ProgressBar(value:$progressValue1)
                             .frame(width: 250)
                         Text(String(champ.info.defense))
+                            .fixedSize()
                     }.onAppear{
                         progressValue1 = Float(champ.info.defense)/10
                         
@@ -165,10 +169,12 @@ struct ChampDetailView: View {
                     
                     HStack{
                         Text("Magic")
+                            .fixedSize()
                         Spacer()
                         ProgressBar(value:$progressValue2)
                             .frame(width: 250)
                         Text(String(champ.info.magic))
+                            .fixedSize()
                     }.onAppear{
                         progressValue2 = Float(champ.info.magic)/10
                         
@@ -178,10 +184,12 @@ struct ChampDetailView: View {
                     
                     HStack{
                         Text("Difficulty")
+                            .fixedSize()
                         Spacer()
                         ProgressBar(value:$progressValue3)
                             .frame(width: 250)
                         Text(String(champ.info.difficulty))
+                            .fixedSize()
                     }.onAppear{
                         progressValue3 = Float(champ.info.difficulty)/10
                         
@@ -211,7 +219,7 @@ struct ChampDetailView: View {
                     
                     //Passive
                     HStack(spacing: 20){
-                        AsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/11.24.1/img/passive/"+(champ.passive.image.full))){phase in
+                        AsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/passive/"+(champ.passive.image.full))){phase in
                             if let image = phase.image {
                                 image.resizable()
                                     .scaledToFit()
@@ -252,7 +260,7 @@ struct ChampDetailView: View {
                     
                     ForEach(champ.spells.indices, id:\.self){ index in
                         HStack(spacing: 20){
-                            AsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/11.24.1/img/spell/"+(champ.spells[index].image.full))){phase in
+                            AsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/spell/"+(champ.spells[index].image.full))){phase in
                                 if let image = phase.image {
                                     image.resizable()
                                         .scaledToFit()

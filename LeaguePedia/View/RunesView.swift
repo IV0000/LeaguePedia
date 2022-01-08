@@ -9,16 +9,26 @@ import SwiftUI
 
 struct RunesView: View {
 
-    let keystoneDescription = ["Hunt and eliminate prey.\nBurst damage and target access.",
+    let keystoneDescription = [
+        "Hunt and eliminate prey.\nBurst damage and target access.",
                                "Outwit mere mortals.\nCreative tools and rule bending",
                                "Become a legend.\nImproved attack and sustained damage",
                                "Live forever.\nDurability and crowd control",
                                "Unleash destruction.\nEmpowered abilities and resource manipulation"]
     
+    let imageName = [
+        "Domination",
+        "Inspiration",
+        "Precision",
+        "Resolve",
+        "Sorcery"
+    ]
+    
     @StateObject var runeManager = RuneClass()
     
     var body: some View {
         NavigationView{
+            ScrollView{
             VStack(spacing:15){
                 ForEach(runeManager.runes.indices , id:\.self){ index in
                     NavigationLink(destination: RunesDetail(mainRune:runeManager.runes[index]), label:{
@@ -32,7 +42,7 @@ struct RunesView: View {
                                     Rectangle()
                                         .cornerRadius(20)
                                         .foregroundColor(Color("innerCard"))
-                                    SwiftUI.Image(runeManager.runes[index].name)
+                                    SwiftUI.Image(imageName[index])
                                         .resizable()
                                         .frame(width: 35, height: 35)
                                 }.frame(width: 70, height: 70)
@@ -65,7 +75,8 @@ struct RunesView: View {
                 runeManager.loadRunesData()
             }
            // Spacer()
-            }
+            }.navigationTitle("Runes")
+        }
         }
     }
 }

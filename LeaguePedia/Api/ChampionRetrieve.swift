@@ -14,7 +14,7 @@ class ChampionClass : ObservableObject {
     @Published var champion : [Datum] = []
     
     func loadData() {
-        guard let url = URL(string: "https://ddragon.leagueoflegends.com/cdn/11.24.1/data/en_US/championFull.json") else {
+        guard let url = URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/data/en_US/championFull.json") else {
             print("Invalid url...")
             return
         }
