@@ -64,7 +64,6 @@ struct RunesDetail: View {
                 
                 LazyVStack(alignment:.leading,spacing:20){
                     ForEach(mainRune.slots.dropFirst(),id:\.self) {slots in
-                        // List(mainRune.slots,id:\.self){slots in
                         ForEach(slots.runes,id:\.self){ rune in
                             HStack{
                                 CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/img/"+(rune.icon))!){phase in
@@ -97,8 +96,7 @@ struct RunesDetail: View {
                             }
                             Divider()
                         }
-                        
-                    }//.listStyle(.plain)
+                    }
                 }
             }
             Spacer()
