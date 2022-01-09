@@ -16,7 +16,7 @@ struct RunesDetail: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.primary)
                     .font(.system(size: 20))
-                ScrollView(.horizontal,showsIndicators: true){
+                ScrollView(.horizontal,showsIndicators: false){
                     HStack(spacing:20){
                         ForEach(mainRune.slots.first!.runes,id:\.self){runes in
                             VStack(alignment: .leading){
@@ -29,11 +29,6 @@ struct RunesDetail: View {
                                             image.resizable()
                                                 .scaledToFit()
                                                 .frame(width: 160, height: 160)
-                                            //.cornerRadius(15)
-                                            // .overlay(RoundedRectangle(cornerRadius: 15)
-                                            // .stroke(Color.primary, lineWidth: 3))
-                                            // .shadow(radius: 5)
-                                            
                                         }
                                         else if phase.error != nil {
                                             Color.red
@@ -68,20 +63,15 @@ struct RunesDetail: View {
                     .font(.system(size: 20))
                 
                 LazyVStack(alignment:.leading,spacing:20){
-                    ForEach(mainRune.slots,id:\.self){slots in
+                    ForEach(mainRune.slots.dropFirst(),id:\.self) {slots in
                         // List(mainRune.slots,id:\.self){slots in
                         ForEach(slots.runes,id:\.self){ rune in
                             HStack{
-                               CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/img/"+(rune.icon))!){phase in
+                                CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/img/"+(rune.icon))!){phase in
                                     if let image = phase.image {
                                         image.resizable()
                                             .scaledToFit()
                                             .frame(width: 64, height: 64)
-                                        //.cornerRadius(15)
-                                        // .overlay(RoundedRectangle(cornerRadius: 15)
-                                        // .stroke(Color.primary, lineWidth: 3))
-                                        // .shadow(radius: 5)
-                                        
                                     }
                                     else if phase.error != nil {
                                         Color.red

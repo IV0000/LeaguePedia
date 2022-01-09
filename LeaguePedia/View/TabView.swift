@@ -22,18 +22,20 @@ struct Tab: View {
                 TabView {
                     ChampionsView()
                         .tabItem {
-                            Label("Champions",systemImage: "camera.filters")
+                            SwiftUI.Image("champIcon")
+                                .renderingMode(.template)
+                            Text("Champions")
                         }
         
                     RunesView()
                         .tabItem {
-                            SwiftUI.Image("runesTab")
+                            SwiftUI.Image("runeIcon")
                                 .renderingMode(.template)
                             Text("Runes")
                         }
                      SettingsView()
                         .tabItem{
-                            Label("Settings",systemImage: "gear")
+                            Label("Settings",systemImage: "gearshape.fill")
                         }
                 }.preferredColorScheme(isDarkMode ? .dark : .light)
         
