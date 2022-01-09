@@ -10,8 +10,6 @@ import SwiftUI
 struct SettingsView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @State var index = 0
-    let languages = ["English","Italian"]
     
     var body: some View {
         NavigationView{

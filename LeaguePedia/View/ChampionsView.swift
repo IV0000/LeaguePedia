@@ -24,48 +24,48 @@ struct ChampionsView: View {
     
     var body: some View {
         NavigationView{
-        VStack{
-            ZStack{
-                List(searchResults, id:\.self){champs in
-                    NavigationLink(destination: ChampDetailView(champ:champs), label:{
-                        HStack{
-                            CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){phase in
-                                if let image = phase.image {
-                                    image.resizable()
-                                        .clipped()
-                                        .frame(width:100,height:100)
-                                    
+            VStack{
+                ZStack{
+                    List(searchResults, id:\.self){champs in
+                        NavigationLink(destination: ChampDetailView(champ:champs), label:{
+                            HStack{
+                                CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){phase in
+                                    if let image = phase.image {
+                                        image.resizable()
+                                            .clipped()
+                                            .frame(width:100,height:100)
+                                        
+                                    }
+                                    else if phase.error != nil {
+                                        Color.red
+                                            .frame(width: 100, height: 100)
+                                        
+                                    }
+                                    else{
+                                        ProgressView()
+                                            .frame(width: 100, height: 100)
+                                    }
                                 }
-                                else if phase.error != nil {
-                                    Color.red
-                                        .frame(width: 100, height: 100)
-                                    
-                                }
-                                else{
-                                    ProgressView()
-                                        .frame(width: 100, height: 100)
+                                
+                                VStack(alignment: .leading){
+                                    Text(champs.name)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.primary)
+                                    Text(champs.title)
+                                        .fontWeight(.regular)
+                                        .foregroundColor(.secondary)
                                 }
                             }
-                            
-                            VStack(alignment: .leading){
-                                Text(champs.name)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.primary)
-                                Text(champs.title)
-                                    .fontWeight(.regular)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    })
+                        })
+                        
+                    }
                     
-                }
+                } .listStyle(.plain)
+                    .searchable(text: $searchText)
                 
-            } .listStyle(.plain)
-            .searchable(text: $searchText) //SEARCHBARD DISAPPEARING
-               
-        }.navigationTitle("Champions")
-            .onAppear{
-                manager.loadData()}
+            }.navigationTitle("Champions")
+                .onAppear{
+                    manager.loadData()}
         }
     }
 }

@@ -39,7 +39,7 @@ struct ChampDetailView: View {
                         }
                         else{
                             ProgressView()
-                              .frame(width: 200, height: 200)
+                                .frame(width: 200, height: 200)
                         }
                     }.padding(.bottom,165)
                     Text(champ.name)
@@ -325,7 +325,7 @@ struct ChampDetailView: View {
                         .fontWeight(.medium)
                         .font(.system(size: 25))
                         .padding(.top,10)
-                   
+                    
                     Text("When playing against:")
                         .fontWeight(.regular)
                         .font(.system(size: 18))

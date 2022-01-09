@@ -19,46 +19,25 @@ struct Tab: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some View {
-                TabView {
-                    ChampionsView()
-                        .tabItem {
-                            SwiftUI.Image("champIcon")
-                                .renderingMode(.template)
-                            Text("Champions")
-                        }
-        
-                    RunesView()
-                        .tabItem {
-                            SwiftUI.Image("runeIcon")
-                                .renderingMode(.template)
-                            Text("Runes")
-                        }
-                     SettingsView()
-                        .tabItem{
-                            Label("Settings",systemImage: "gearshape.fill")
-                        }
-                }.preferredColorScheme(isDarkMode ? .dark : .light)
-        
-        
-        //TAB WITH PROBLEMS
-        
-//        NavigationView {
-//            TabView(selection: $selection) {
-//                ChampionsView()
-//                    .tag("Champions")
-//                    .tabItem {
-//                        SwiftUI.Image(systemName: "list.dash")
-//                        Text("Champions")
-//                    }
-//                RunesView()
-//                    .tag("Runes")
-//                    .tabItem {
-//                        SwiftUI.Image(systemName: "square.and.pencil")
-//                        Text("Runes")
-//                    }
-//            }
-//            .navigationBarTitle(self.selection)
-//        }
+        TabView {
+            ChampionsView()
+                .tabItem {
+                    SwiftUI.Image("champIcon")
+                        .renderingMode(.template)
+                    Text("Champions")
+                }
+            
+            RunesView()
+                .tabItem {
+                    SwiftUI.Image("runeIcon")
+                        .renderingMode(.template)
+                    Text("Runes")
+                }
+            SettingsView()
+                .tabItem{
+                    Label("Settings",systemImage: "gearshape.fill")
+                }
+        }.preferredColorScheme(isDarkMode ? .dark : .light)
         
     }
 }
