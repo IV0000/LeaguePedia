@@ -62,6 +62,7 @@ struct ChampionsView: View {
                     
                 } .listStyle(.plain)
                     .searchable(text: $searchText)
+                    .disableAutocorrection(true)
                 
             }.navigationTitle("Champions")
                 .onAppear{

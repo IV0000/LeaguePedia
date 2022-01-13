@@ -35,7 +35,7 @@ struct Tab: View {
                 }
             SettingsView()
                 .tabItem{
-                    Label("Settings",systemImage: "gearshape.fill")
+                    Label("Settings",systemImage: "gear")
                 }
         }.preferredColorScheme(isDarkMode ? .dark : .light)
         
