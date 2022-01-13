@@ -26,7 +26,6 @@ struct ChampDetailView: View {
                     CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/"+(champ.id)+"_0.jpg")!){phase in
                         if let image = phase.image {
                             image.resizable()
-                            // .ignoresSafeArea()
                                 .scaleEffect(2.5)
                                 .scaledToFit()
                                 .ignoresSafeArea()
