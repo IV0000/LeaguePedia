@@ -268,7 +268,7 @@ struct ChampDetailView: View {
                                         .cornerRadius(15)
                                         .overlay(RoundedRectangle(cornerRadius: 15)
                                                     .stroke(Color.primary, lineWidth: 3))
-                                    // .shadow(radius: 5)
+                                    
                                     
                                 }
                                 else if phase.error != nil {
@@ -306,12 +306,11 @@ struct ChampDetailView: View {
                                     }
                                     Text(champ.spells[index].name)
                                         .fontWeight(.bold)
-                                    // .fixedSize()
+                                    
                                 }
                                 Text(champ.spells[index].spellDescription.replacingOccurrences(of: "\\s?\\<[^>]*\\>", with: " ", options: .regularExpression))
                                     .fontWeight(.light)
-                                //PORCO IL DIO CHI CAZZO METTE IL MARKUP HTML IN UN JSON, RIOT INFAME
-                                //HTMLStringView(htmlContent:champ.spells[index].spellDescription)
+            
                                 
                             }
                         }
