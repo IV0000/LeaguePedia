@@ -2,8 +2,7 @@
 LeaguePedia is an enciclopedy about League of Legends created using SwiftUI and the [RiotGamesAPI](https://developer.riotgames.com/).
 
 ## Features
-You can view and search all league of legends **champions** and view all the **runes** present in the game. The app is also present in both light and **dark mode**. For this project i've created some data models to handle the decoded JSON data from the API. The async images were cached using [this tutorial](https://youtu.be/KhGyiOk3Yzk). In a future version i'm planning to add the "change leanguage" feature.
-
+You can view and search all league of legends **champions** and all the **runes** present in the game. The app is also present in both light and **dark mode**. For this project I've created some data models to handle the decoded JSON data from the API. The async images were cached using [this tutorial](https://youtu.be/KhGyiOk3Yzk). 
 
 ## Screenshots
 
