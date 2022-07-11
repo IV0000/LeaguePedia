@@ -10,15 +10,28 @@ import SwiftUI
 struct ChampionsView: View {
     
     @StateObject var manager = ChampionClass()
-    @State private var searchText = ""
     
-    //For SearchField
-    var searchResults : [Datum]{
-        if searchText.isEmpty {
-            return manager.champion.sorted(by: {$0.name < $1.name})
+    var sortTypes = ["A-Z","Z-A",]
+    @State private var searchText = ""
+    @State private var selectedSort = 0
+    
+    var searchResults: [Datum] {
+       
+        if selectedSort == 1 {
+            if !searchText.isEmpty {
+                return manager.champion.filter({"\($0)".contains(searchText.capitalized)})
+            }
+            else {
+                return manager.champion.sorted(by: {$0.name > $1.name})
+            }
         }
-        else{
-            return manager.champion.filter({"\($0)".contains(searchText.capitalized)})
+        else {
+            if !searchText.isEmpty {
+                return manager.champion.filter({"\($0)".contains(searchText.capitalized)})
+            }
+            else {
+                return manager.champion.sorted(by: {$0.name < $1.name})
+            }
         }
     }
     
@@ -26,10 +39,10 @@ struct ChampionsView: View {
         NavigationView{
             VStack{
                 ZStack{
-                    List(searchResults, id:\.self){champs in
-                        NavigationLink(destination: ChampDetailView(champ:champs), label:{
+                    List(searchResults, id:\.self){ champs in
+                        NavigationLink(destination: ChampDetailView(champ:champs), label: {
                             HStack{
-                                CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){phase in
+                                CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){ phase in
                                     if let image = phase.image {
                                         image.resizable()
                                             .clipped()
@@ -47,7 +60,7 @@ struct ChampionsView: View {
                                     }
                                 }
                                 
-                                VStack(alignment: .leading){
+                                VStack(alignment: .leading) {
                                     Text(champs.name)
                                         .fontWeight(.bold)
                                         .foregroundColor(.primary)
@@ -60,13 +73,24 @@ struct ChampionsView: View {
                         
                     }
                     
-                } .listStyle(.plain)
-                    .searchable(text: $searchText)
-                    .disableAutocorrection(true)
+                }
+                .listStyle(.plain)
+                .searchable(text: $searchText)
+                .disableAutocorrection(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Picker(selection: $selectedSort, label: Text("Sort")) {
+                            ForEach(0..<sortTypes.count, id: \.self) {
+                                Text(self.sortTypes[$0])
+                            }
+                        }
+                    }
+                }
                 
-            }.navigationTitle("Champions")
-                .onAppear{
-                    manager.loadData()}
+            }
+            .navigationTitle("Champions")
+            .onAppear{
+                manager.loadData()}
         }
     }
 }
