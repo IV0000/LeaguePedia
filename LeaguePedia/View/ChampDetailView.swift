@@ -23,7 +23,7 @@ struct ChampDetailView: View {
                 
                 // MARK: - CHAMP IMAGE, TITLE AND NAME
                 Group{
-                    CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/"+(champ.id)+"_0.jpg")!){phase in
+                    CacheAsyncImage(url : URL(string: "\(ddragon)/cdn/img/champion/centered/"+(champ.id)+"_0.jpg")!){phase in
                         if let image = phase.image {
                             image.resizable()
                                 .scaleEffect(2.5)

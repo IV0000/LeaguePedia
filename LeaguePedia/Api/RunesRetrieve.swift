@@ -13,7 +13,7 @@ class RuneClass : ObservableObject {
     
     func loadRunesData() {
         
-        guard let url = URL(string: "https://ddragon.leagueoflegends.com/cdn/12.12.1/data/en_US/runesReforged.json") else {
+        guard let url = URL(string: "\(ddragon)/cdn/12.12.1/data/\(ddlanguage)/runesReforged.json") else {
             print("Invalid url...")
             return
         }

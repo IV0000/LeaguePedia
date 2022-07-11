@@ -9,28 +9,28 @@ import SwiftUI
 
 struct ChampionsView: View {
     
-    @ObservedObject var championVM : ChampionClass
+    @ObservedObject var champFetcher : ChampionFetcher
     
     var sortTypes = ["A-Z","Z-A",]
     @State private var searchText = ""
     @State private var selectedSort = 0
     
-    var searchResults: [Datum] {
+    var filteredList: [Datum] {
         
         if selectedSort == 1 {
             if !searchText.isEmpty {
-                return championVM.champion.filter({"\($0)".contains(searchText.capitalized)})
+                return champFetcher.championsList.filter({"\($0)".contains(searchText.capitalized)})
             }
             else {
-                return championVM.champion.sorted(by: {$0.name > $1.name})
+                return champFetcher.championsList.sorted(by: {$0.name > $1.name})
             }
         }
         else {
             if !searchText.isEmpty {
-                return championVM.champion.filter({"\($0)".contains(searchText.capitalized)})
+                return champFetcher.championsList.filter({"\($0)".contains(searchText.capitalized)})
             }
             else {
-                return championVM.champion.sorted(by: {$0.name < $1.name})
+                return champFetcher.championsList.sorted(by: {$0.name < $1.name})
             }
         }
     }
@@ -39,10 +39,10 @@ struct ChampionsView: View {
         NavigationView{
             VStack{
                 ZStack{
-                    List(searchResults, id:\.self){ champs in
+                    List(filteredList, id:\.self){ champs in
                         NavigationLink(destination: ChampDetailView(champ:champs), label: {
                             HStack{
-                                CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){ phase in
+                                CacheAsyncImage(url : URL(string: "\(ddragon)/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){ phase in
                                     if let image = phase.image {
                                         image.resizable()
                                             .clipped()
@@ -92,13 +92,13 @@ struct ChampionsView: View {
             }
             .navigationTitle("Champions")
             .onAppear{
-                championVM.loadData()}
+                champFetcher.loadData()}
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ChampionsView(championVM: ChampionClass())
+        ChampionsView(champFetcher: ChampionFetcher())
     }
 }

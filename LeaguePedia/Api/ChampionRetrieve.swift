@@ -8,63 +8,58 @@
 import Foundation
 import SwiftUI
 
+var ddragon = "https://ddragon.leagueoflegends.com"
+var ddlanguage = "en_US"
+
 @MainActor
-class ChampionClass : ObservableObject {
+class ChampionFetcher : ObservableObject {
     
-    @Published var champion : [Datum] = []
+    @Published var championsList: [Datum] = []
+    @Published var isChampLoading: Bool = false
+    @Published var errorMessage: String?
     @AppStorage("version") private var version: String = ""
     
     init() {
         getVersion()
     }
 
+    
     func getVersion() {
-        guard let url = URL(string: "https://ddragon.leagueoflegends.com/api/versions.json") else {
-            print("Invalid url...")
-            return
-        }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data{
-                do{
-                    let versions = try JSONDecoder().decode(Versions.self, from: data)
-                    DispatchQueue.main.async {
-                        self.version = versions.first ?? ""
-                    }
-                    print(self.version)
-                }
-                catch{
-                    print(error)
+        let manager = ApiManager()
+        let url = URL(string: "\(ddragon)/api/versions.json")
+        manager.fetchAPI(Versions.self, url: url, completion: {[unowned self] result in
+            DispatchQueue.main.async {
+                self.isChampLoading = false
+                switch result {
+                case .failure(let error):
+                    self.errorMessage = error.userDescription
+                    print(error.description)
+                case .success(let versions):
+                    self.version = versions.first ?? ""
                 }
             }
-        }
-        task.resume()
+        })
     }
     
     func loadData() {
         
-        guard let url = URL(string: "https://ddragon.leagueoflegends.com/cdn/\(String(describing: version))/data/en_US/championFull.json") else {
-            print("Invalid champion url")
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if let data = data{
-                
-                do{
-                    
-                    let champion = try JSONDecoder().decode(Champion.self, from: data)
-                    DispatchQueue.main.async {
-                        self.champion = Array(champion.data.values)
-                    }
-                    //print(champion)
-                }
-                catch{
-                    print(error)
+        isChampLoading = true
+        errorMessage = nil
+        
+        let manager = ApiManager()
+        let url = URL(string: "\(ddragon)/cdn/\(String(describing: version))/data/\(ddlanguage)/championFull.json")
+        manager.fetchAPI(Champion.self, url: url, completion: {[unowned self] result in
+            DispatchQueue.main.async {
+                self.isChampLoading = false
+                switch result {
+                case .failure(let error):
+                    self.errorMessage = error.userDescription
+                    print(error.description)
+                case .success(let champion):
+                    self.championsList = Array(champion.data.values)
                 }
             }
-            
-        }
-        task.resume()
+        })
     }
 }

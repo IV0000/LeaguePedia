@@ -16,11 +16,11 @@ struct Tab: View {
 
     @State private var selection = "Champions"
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @StateObject var championVM = ChampionClass()
+    @StateObject var champFetcher = ChampionFetcher()
     
     var body: some View {
         TabView {
-            ChampionsView(championVM: championVM)
+            ChampionsView(champFetcher: champFetcher)
                 .tabItem {
                     SwiftUI.Image("champIcon")
                         .renderingMode(.template)

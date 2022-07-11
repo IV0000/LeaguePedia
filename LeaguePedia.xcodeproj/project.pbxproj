@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF4DEBFD287C295600ACFF3A /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DEBFC287C295600ACFF3A /* ApiManager.swift */; };
+		FF4DEBFF287C29A400ACFF3A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DEBFE287C29A400ACFF3A /* NetworkError.swift */; };
 		FF534EAE28355EC20089BE94 /* SummonerRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF534EAD28355EC20089BE94 /* SummonerRetrieve.swift */; };
 		FF6F0D8927839716009DCD1B /* LeaguePediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D8827839716009DCD1B /* LeaguePediaApp.swift */; };
 		FF6F0D8B27839716009DCD1B /* ChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D8A27839716009DCD1B /* ChampionsView.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF4DEBFC287C295600ACFF3A /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		FF4DEBFE287C29A400ACFF3A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FF534EAD28355EC20089BE94 /* SummonerRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRetrieve.swift; sourceTree = "<group>"; };
 		FF6F0D8527839716009DCD1B /* LeaguePedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaguePedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF6F0D8827839716009DCD1B /* LeaguePediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguePediaApp.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				FF6F0D9A27839862009DCD1B /* ChampionRetrieve.swift */,
 				FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */,
 				FF534EAD28355EC20089BE94 /* SummonerRetrieve.swift */,
+				FF4DEBFC287C295600ACFF3A /* ApiManager.swift */,
+				FF4DEBFE287C29A400ACFF3A /* NetworkError.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -211,7 +217,9 @@
 				FF6F0D9927839815009DCD1B /* ChampionModel.swift in Sources */,
 				FF534EAE28355EC20089BE94 /* SummonerRetrieve.swift in Sources */,
 				FFDB27C12784E1AA00755958 /* RunesDetail.swift in Sources */,
+				FF4DEBFF287C29A400ACFF3A /* NetworkError.swift in Sources */,
 				FF7E4B622783AE55002D4CBB /* RunesModel.swift in Sources */,
+				FF4DEBFD287C295600ACFF3A /* ApiManager.swift in Sources */,
 				FFFEF63C2788ED3D00E6B051 /* SettingsView.swift in Sources */,
 				FF6F0D8927839716009DCD1B /* LeaguePediaApp.swift in Sources */,
 				FF6F0D9D2783988A009DCD1B /* CacheAsyncImage.swift in Sources */,
