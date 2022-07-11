@@ -50,7 +50,7 @@ class ChampionFetcher : ObservableObject {
         let url = URL(string: "\(ddragon)/api/versions.json")
         manager.fetchAPI(Versions.self, url: url, completion: {[unowned self] result in
             DispatchQueue.main.async {
-                self.isChampLoading = false
+//                self.isChampLoading = false
                 switch result {
                 case .failure(let error):
                     self.errorMessage = error.userDescription
