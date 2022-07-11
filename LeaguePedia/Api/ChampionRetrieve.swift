@@ -8,22 +8,42 @@
 import Foundation
 import SwiftUI
 
-var ddragon = "https://ddragon.leagueoflegends.com"
-var ddlanguage = "en_US"
-
 @MainActor
 class ChampionFetcher : ObservableObject {
     
+    //Fetching
     @Published var championsList: [Datum] = []
     @Published var isChampLoading: Bool = false
     @Published var errorMessage: String?
     @AppStorage("version") private var version: String = ""
     
+    //Search & Filter
+    @Published var searchText: String = ""
+    @Published var selectedSort: Int = 0
+    var filteredList: [Datum] {
+        if selectedSort == 1 {
+            if !searchText.isEmpty {
+                return championsList.filter({"\($0)".contains(searchText.capitalized)})
+            }
+            else {
+                return championsList.sorted(by: {$0.name > $1.name})
+            }
+        }
+        else {
+            if !searchText.isEmpty {
+                return championsList.filter({"\($0)".contains(searchText.capitalized)})
+            }
+            else {
+                return championsList.sorted(by: {$0.name < $1.name})
+            }
+        }
+    }
+    
     init() {
         getVersion()
     }
-
     
+    //Get current patch version
     func getVersion() {
         
         let manager = ApiManager()
@@ -42,7 +62,7 @@ class ChampionFetcher : ObservableObject {
         })
     }
     
-    func loadData() {
+    func loadChampData() {
         
         isChampLoading = true
         errorMessage = nil

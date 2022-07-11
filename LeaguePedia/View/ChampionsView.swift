@@ -11,35 +11,15 @@ struct ChampionsView: View {
     
     @ObservedObject var champFetcher : ChampionFetcher
     
-    var sortTypes = ["A-Z","Z-A",]
+    var sortTypes = ["A-Z","Z-A"]
     @State private var searchText = ""
     @State private var selectedSort = 0
-    
-    var filteredList: [Datum] {
-        
-        if selectedSort == 1 {
-            if !searchText.isEmpty {
-                return champFetcher.championsList.filter({"\($0)".contains(searchText.capitalized)})
-            }
-            else {
-                return champFetcher.championsList.sorted(by: {$0.name > $1.name})
-            }
-        }
-        else {
-            if !searchText.isEmpty {
-                return champFetcher.championsList.filter({"\($0)".contains(searchText.capitalized)})
-            }
-            else {
-                return champFetcher.championsList.sorted(by: {$0.name < $1.name})
-            }
-        }
-    }
     
     var body: some View {
         NavigationView{
             VStack{
                 ZStack{
-                    List(filteredList, id:\.self){ champs in
+                    List(champFetcher.filteredList, id:\.self){ champs in
                         NavigationLink(destination: ChampDetailView(champ:champs), label: {
                             HStack{
                                 CacheAsyncImage(url : URL(string: "\(ddragon)/cdn/12.1.1/img/champion/"+(champs.id)+".png")! ){ phase in
@@ -77,22 +57,21 @@ struct ChampionsView: View {
                     
                 }
                 .listStyle(.plain)
-                .searchable(text: $searchText)
+                .searchable(text: $champFetcher.searchText)
                 .disableAutocorrection(true)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Picker(selection: $selectedSort, label: Text("Sort")) {
+                        Picker(selection: $champFetcher.selectedSort, label: Text("Sort")) {
                             ForEach(0..<sortTypes.count, id: \.self) {
                                 Text(self.sortTypes[$0])
                             }
                         }
                     }
                 }
-                
             }
             .navigationTitle("Champions")
             .onAppear{
-                champFetcher.loadData()}
+                champFetcher.loadChampData()}
         }
     }
 }
