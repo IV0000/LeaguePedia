@@ -12,7 +12,6 @@ struct LeaguePediaApp: App {
     var body: some Scene {
         WindowGroup {
            Tab()
-            
         }
     }
 }

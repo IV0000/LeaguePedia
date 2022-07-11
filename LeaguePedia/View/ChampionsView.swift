@@ -9,28 +9,28 @@ import SwiftUI
 
 struct ChampionsView: View {
     
-    @StateObject var manager = ChampionClass()
+    @ObservedObject var championVM : ChampionClass
     
     var sortTypes = ["A-Z","Z-A",]
     @State private var searchText = ""
     @State private var selectedSort = 0
     
     var searchResults: [Datum] {
-       
+        
         if selectedSort == 1 {
             if !searchText.isEmpty {
-                return manager.champion.filter({"\($0)".contains(searchText.capitalized)})
+                return championVM.champion.filter({"\($0)".contains(searchText.capitalized)})
             }
             else {
-                return manager.champion.sorted(by: {$0.name > $1.name})
+                return championVM.champion.sorted(by: {$0.name > $1.name})
             }
         }
         else {
             if !searchText.isEmpty {
-                return manager.champion.filter({"\($0)".contains(searchText.capitalized)})
+                return championVM.champion.filter({"\($0)".contains(searchText.capitalized)})
             }
             else {
-                return manager.champion.sorted(by: {$0.name < $1.name})
+                return championVM.champion.sorted(by: {$0.name < $1.name})
             }
         }
     }
@@ -50,9 +50,11 @@ struct ChampionsView: View {
                                         
                                     }
                                     else if phase.error != nil {
-                                        Color.red
+                                        Text("?")
+                                            .font(.system(size:40))
+                                            .fontWeight(.bold)
                                             .frame(width: 100, height: 100)
-                                        
+                                            .background(Color.red.opacity(0.6))
                                     }
                                     else{
                                         ProgressView()
@@ -90,13 +92,13 @@ struct ChampionsView: View {
             }
             .navigationTitle("Champions")
             .onAppear{
-                manager.loadData()}
+                championVM.loadData()}
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ChampionsView()
+        ChampionsView(championVM: ChampionClass())
     }
 }

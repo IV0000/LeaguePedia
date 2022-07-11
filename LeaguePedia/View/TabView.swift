@@ -13,20 +13,19 @@ struct Tab: View {
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().barTintColor = UIColor(named: "cardColor")
     }
-    
-    
+
     @State private var selection = "Champions"
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @StateObject var championVM = ChampionClass()
     
     var body: some View {
         TabView {
-            ChampionsView()
+            ChampionsView(championVM: championVM)
                 .tabItem {
                     SwiftUI.Image("champIcon")
                         .renderingMode(.template)
                     Text("Champions")
                 }
-            
             RunesView()
                 .tabItem {
                     SwiftUI.Image("runeIcon")
@@ -37,7 +36,8 @@ struct Tab: View {
                 .tabItem{
                     Label("Settings",systemImage: "gear")
                 }
-        }.preferredColorScheme(isDarkMode ? .dark : .light)
+        }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
         
     }
 }

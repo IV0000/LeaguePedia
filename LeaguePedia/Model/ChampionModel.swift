@@ -7,11 +7,12 @@
 
 import Foundation
 
+typealias Versions = [String]
+
 // MARK: - Champion
 struct Champion: Codable, Hashable {
     var type: TypeEnum
     var format: String
-    var version: String
     var data: [String: Datum]
 }
 
