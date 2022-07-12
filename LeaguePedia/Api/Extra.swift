@@ -8,4 +8,4 @@
 import Foundation
 
 var ddragon = "https://ddragon.leagueoflegends.com"
-var ddlanguage = "en_US"
+var ddlanguage = NSLocalizedString("en_US", comment: "")

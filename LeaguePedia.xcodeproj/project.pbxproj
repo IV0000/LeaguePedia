@@ -10,6 +10,7 @@
 		FF4DEBFD287C295600ACFF3A /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DEBFC287C295600ACFF3A /* ApiManager.swift */; };
 		FF4DEBFF287C29A400ACFF3A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DEBFE287C29A400ACFF3A /* NetworkError.swift */; };
 		FF4DEC01287C2DDB00ACFF3A /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DEC00287C2DDB00ACFF3A /* Extra.swift */; };
+		FF4DEC04287D82F500ACFF3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF4DEC02287D82F500ACFF3A /* Localizable.strings */; };
 		FF534EAE28355EC20089BE94 /* SummonerRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF534EAD28355EC20089BE94 /* SummonerRetrieve.swift */; };
 		FF6F0D8927839716009DCD1B /* LeaguePediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D8827839716009DCD1B /* LeaguePediaApp.swift */; };
 		FF6F0D8B27839716009DCD1B /* ChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F0D8A27839716009DCD1B /* ChampionsView.swift */; };
@@ -31,6 +32,7 @@
 		FF4DEBFC287C295600ACFF3A /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		FF4DEBFE287C29A400ACFF3A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FF4DEC00287C2DDB00ACFF3A /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
+		FF4DEC03287D82F500ACFF3A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF534EAD28355EC20089BE94 /* SummonerRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRetrieve.swift; sourceTree = "<group>"; };
 		FF6F0D8527839716009DCD1B /* LeaguePedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaguePedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF6F0D8827839716009DCD1B /* LeaguePediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguePediaApp.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		FF6F0D8727839716009DCD1B /* LeaguePedia */ = {
 			isa = PBXGroup;
 			children = (
+				FF4DEC02287D82F500ACFF3A /* Localizable.strings */,
 				FF6F0D8827839716009DCD1B /* LeaguePediaApp.swift */,
 				FF6F0DA1278398E8009DCD1B /* Cache */,
 				FF6F0DA0278398DE009DCD1B /* Api */,
@@ -183,6 +186,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = FF6F0D7C27839716009DCD1B;
 			productRefGroup = FF6F0D8627839716009DCD1B /* Products */;
@@ -200,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6F0D9027839718009DCD1B /* Preview Assets.xcassets in Resources */,
+				FF4DEC04287D82F500ACFF3A /* Localizable.strings in Resources */,
 				FF6F0D8D27839718009DCD1B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +236,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FF4DEC02287D82F500ACFF3A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF4DEC03287D82F500ACFF3A /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FF6F0D9127839718009DCD1B /* Debug */ = {

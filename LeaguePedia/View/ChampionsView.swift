@@ -61,18 +61,18 @@ struct ChampListRow: View {
                 if let image = phase.image {
                     image.resizable()
                         .clipped()
-                        .frame(width:100,height:100)
+                        .frame(width:80,height:80)
                 }
                 else if phase.error != nil {
                     Text("?")
                         .font(.system(size:40))
                         .fontWeight(.bold)
-                        .frame(width: 100, height: 100)
+                        .frame(width: 80, height: 80)
                         .background(Color.red.opacity(0.6))
                 }
                 else{
                     ProgressView()
-                        .frame(width: 100, height: 100)
+                        .frame(width: 80, height: 80)
                 }
             }
             

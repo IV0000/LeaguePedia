@@ -29,8 +29,6 @@ struct ChampDetailView: View {
                                 .scaleEffect(2.5)
                                 .scaledToFit()
                                 .ignoresSafeArea()
-                            
-                            
                         }
                         else if phase.error != nil {
                             Text("Failed loading the image")
