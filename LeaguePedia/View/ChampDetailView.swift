@@ -370,13 +370,15 @@ struct ProgressBar: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
-                Rectangle().frame(width: geometry.size.width, height: geometry.size.height)
+                Rectangle()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
                     .opacity(0.3)
                     .foregroundColor(Color(UIColor.systemGray3))
-                
-                Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
+                Rectangle()
+                    .frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
                     .foregroundColor(Color(UIColor.systemRed))
-            }.cornerRadius(45.0)
+            }
+            .cornerRadius(45.0)
         }
     }
 }

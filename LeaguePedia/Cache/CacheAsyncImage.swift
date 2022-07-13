@@ -15,8 +15,6 @@ struct CacheAsyncImage<Content>: View where Content: View {
     private let transcation: Transaction
     private let content: (AsyncImagePhase) -> Content
     
-    
-    
     init(
         url: URL,
         scale: CGFloat = 1.0,

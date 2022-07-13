@@ -10,11 +10,12 @@ import SwiftUI
 struct RunesView: View {
     
     let keystoneDescription = [
-        "Hunt and eliminate prey.\nBurst damage and target access.",
-        "Outwit mere mortals.\nCreative tools and rule bending",
-        "Become a legend.\nImproved attack and sustained damage",
-        "Live forever.\nDurability and crowd control",
-        "Unleash destruction.\nEmpowered abilities and resource manipulation"]
+        LocalizedStringKey("Hunt and eliminate prey.\nBurst damage and target access."),
+        LocalizedStringKey("Outwit mere mortals.\nCreative tools and rule bending"),
+        LocalizedStringKey("Become a legend.\nImproved attack and sustained damage"),
+        LocalizedStringKey("Live forever.\nDurability and crowd control"),
+        LocalizedStringKey("Unleash destruction.\nEmpowered abilities and resource manipulation")
+    ]
     
     let imageName = [
         "Domination",
@@ -24,14 +25,14 @@ struct RunesView: View {
         "Sorcery"
     ]
     
-    @StateObject var runeManager = RuneClass()
+    @StateObject var runeFetcher = RuneFetcher()
     
     var body: some View {
         NavigationView{
             ScrollView{
                 VStack(spacing:15){
-                    ForEach(runeManager.runes.indices , id:\.self){ index in
-                        NavigationLink(destination: RunesDetail(mainRune:runeManager.runes[index]), label:{
+                    ForEach(runeFetcher.runesList.indices , id:\.self){ index in
+                        NavigationLink(destination: RunesDetail(mainRune:runeFetcher.runesList[index]), label:{
                             ZStack{
                                 Rectangle()
                                     .cornerRadius(30)
@@ -47,7 +48,7 @@ struct RunesView: View {
                                             .frame(width: 35, height: 35)
                                     }.frame(width: 70, height: 70)
                                     VStack(alignment: .leading){
-                                        Text(runeManager.runes[index].name)
+                                        Text(runeFetcher.runesList[index].name)
                                             .foregroundColor(.primary)
                                             .font(.system(size: 20))
                                             .fontWeight(.bold)
@@ -72,7 +73,7 @@ struct RunesView: View {
                     Spacer()
                     
                         .onAppear{
-                            runeManager.loadRunesData()
+                            runeFetcher.loadRunesData()
                         }
                     // Spacer()
                 }.navigationTitle("Runes")

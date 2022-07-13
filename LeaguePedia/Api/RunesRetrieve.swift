@@ -7,33 +7,30 @@
 
 import Foundation
 
-class RuneClass : ObservableObject {
+class RuneFetcher: ObservableObject {
     
-    @Published var runes : [MainRune] = []
-    
+    @Published var runesList: [MainRune] = []
+    @Published var isRunesLoading: Bool = false
+    @Published var errorMessage: String?
+        
     func loadRunesData() {
         
-        guard let url = URL(string: "\(ddragon)/cdn/12.12.1/data/\(ddlanguage)/runesReforged.json") else {
-            print("Invalid url...")
-            return
-        }
+        isRunesLoading = true
+        errorMessage = nil
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if let data = data{
-                do{
-                    let runes = try JSONDecoder().decode([MainRune].self, from: data)
-                    DispatchQueue.main.async {
-                        self.runes = runes
-                    }
-                    //print(runes)
-                }
-                catch{
-                    print(error)
+        let manager = ApiManager()
+        let url = URL(string: "\(ddragon)/cdn/12.12.1/data/\(ddlanguage)/runesReforged.json")
+        manager.fetchAPI([MainRune].self, url: url, completion: {[unowned self] result in
+            DispatchQueue.main.async {
+                self.isRunesLoading = false
+                switch result {
+                case .failure(let error):
+                    self.errorMessage = error.userDescription
+                    print(error.description)
+                case .success(let rune):
+                    self.runesList = rune
                 }
             }
-            
-        }.resume()
+        })
     }
-    
 }
