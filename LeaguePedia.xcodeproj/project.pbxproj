@@ -23,6 +23,8 @@
 		FF7E4B622783AE55002D4CBB /* RunesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E4B612783AE55002D4CBB /* RunesModel.swift */; };
 		FF7E4B642783B138002D4CBB /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E4B632783B138002D4CBB /* RunesView.swift */; };
 		FF7E4B662783B333002D4CBB /* RunesRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */; };
+		FF95AFDA28AC185F00673872 /* CacheEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95AFD928AC185F00673872 /* CacheEntry.swift */; };
+		FF95AFDC28AC18A200673872 /* CacheImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95AFDB28AC18A200673872 /* CacheImplementation.swift */; };
 		FFDB27C12784E1AA00755958 /* RunesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDB27C02784E1AA00755958 /* RunesDetail.swift */; };
 		FFFEF63A2785CF4D00E6B051 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF6392785CF4D00E6B051 /* TabView.swift */; };
 		FFFEF63C2788ED3D00E6B051 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF63B2788ED3D00E6B051 /* SettingsView.swift */; };
@@ -46,6 +48,8 @@
 		FF7E4B612783AE55002D4CBB /* RunesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesModel.swift; sourceTree = "<group>"; };
 		FF7E4B632783B138002D4CBB /* RunesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
 		FF7E4B652783B332002D4CBB /* RunesRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesRetrieve.swift; sourceTree = "<group>"; };
+		FF95AFD928AC185F00673872 /* CacheEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheEntry.swift; sourceTree = "<group>"; };
+		FF95AFDB28AC18A200673872 /* CacheImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImplementation.swift; sourceTree = "<group>"; };
 		FFDB27C02784E1AA00755958 /* RunesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesDetail.swift; sourceTree = "<group>"; };
 		FFFEF6392785CF4D00E6B051 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		FFFEF63B2788ED3D00E6B051 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				FF6F0D9C2783988A009DCD1B /* CacheAsyncImage.swift */,
+				FF95AFD928AC185F00673872 /* CacheEntry.swift */,
+				FF95AFDB28AC18A200673872 /* CacheImplementation.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 				FF6F0D97278397BE009DCD1B /* ChampDetailView.swift in Sources */,
 				FF6F0D8B27839716009DCD1B /* ChampionsView.swift in Sources */,
 				FF7E4B642783B138002D4CBB /* RunesView.swift in Sources */,
+				FF95AFDC28AC18A200673872 /* CacheImplementation.swift in Sources */,
 				FF7E4B662783B333002D4CBB /* RunesRetrieve.swift in Sources */,
 				FF6F0D9B27839862009DCD1B /* ChampionRetrieve.swift in Sources */,
 				FF6F0D9927839815009DCD1B /* ChampionModel.swift in Sources */,
@@ -229,6 +236,7 @@
 				FF4DEC01287C2DDB00ACFF3A /* Extra.swift in Sources */,
 				FF7E4B622783AE55002D4CBB /* RunesModel.swift in Sources */,
 				FF4DEBFD287C295600ACFF3A /* ApiManager.swift in Sources */,
+				FF95AFDA28AC185F00673872 /* CacheEntry.swift in Sources */,
 				FFFEF63C2788ED3D00E6B051 /* SettingsView.swift in Sources */,
 				FF6F0D8927839716009DCD1B /* LeaguePediaApp.swift in Sources */,
 				FF6F0D9D2783988A009DCD1B /* CacheAsyncImage.swift in Sources */,
@@ -300,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -355,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

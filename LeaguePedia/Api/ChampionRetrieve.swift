@@ -39,6 +39,9 @@ class ChampionFetcher : ObservableObject {
         }
     }
     
+    //Cache 10 minutes
+    private let cache = InMemoryCache<[Datum]>(expirationInterval: 10 * 60)
+    
     init() {
         getVersion()
     }
@@ -67,19 +70,27 @@ class ChampionFetcher : ObservableObject {
         isChampLoading = true
         errorMessage = nil
         
-        let manager = ApiManager()
-        let url = URL(string: "\(ddragon)/cdn/\(String(describing: version))/data/\(ddlanguage)/championFull.json")
-        manager.fetchAPI(Champion.self, url: url, completion: {[unowned self] result in
-            DispatchQueue.main.async {
-                self.isChampLoading = false
-                switch result {
-                case .failure(let error):
-                    self.errorMessage = error.userDescription
-                    print(error.description)
-                case .success(let champion):
-                    self.championsList = Array(champion.data.values)
+        if let championsList = cache.value(forKey: "champs"){
+            self.championsList = championsList
+            isChampLoading = false
+            print("cache HIT")
+        } else {
+            let manager = ApiManager()
+            let url = URL(string: "\(ddragon)/cdn/\(String(describing: version))/data/\(ddlanguage)/championFull.json")
+            manager.fetchAPI(Champion.self, url: url, completion: {[unowned self] result in
+                DispatchQueue.main.async {
+                    self.isChampLoading = false
+                    switch result {
+                    case .failure(let error):
+                        self.errorMessage = error.userDescription
+                        print(error.description)
+                    case .success(let champion):
+                        self.championsList = Array(champion.data.values)
+                        self.cache.setValue(self.championsList, forKey: "champs")
+                        print("cache set")
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 }
