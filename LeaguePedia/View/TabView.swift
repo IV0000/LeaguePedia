@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Tab: View {
-    
     init() {
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().barTintColor = UIColor(named: "cardColor")
@@ -17,7 +16,7 @@ struct Tab: View {
     @State private var selection = "Champions"
     @AppStorage("isDarkMode") private var isDarkMode = false
     @StateObject var champFetcher = ChampionFetcher()
-    
+
     var body: some View {
         TabView {
             ChampionsView(champFetcher: champFetcher)
@@ -32,14 +31,12 @@ struct Tab: View {
                         .renderingMode(.template)
                     Text("Runes")
                 }
-            SettingsView()
-                .tabItem{
-                    Label("Settings",systemImage: "gear")
-                }
+            //MARK: TO REMOVE
+//            SettingsView()
+//                .tabItem {
+//                    Label("Settings", systemImage: "gear")
+//                }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
-        
     }
 }
-
-

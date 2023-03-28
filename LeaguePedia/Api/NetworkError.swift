@@ -13,32 +13,31 @@ enum NetworkError: Error, CustomStringConvertible {
     case urlSession(URLError?)
     case parsing(DecodingError?)
     case undefined
-    
+
     var userDescription: String {
         switch self {
         case .parsing, .badUrl, .undefined:
             return "Something went wrong"
-        case .response(_):
+        case .response:
             return "Connection failed"
-        case .urlSession(let error):
+        case let .urlSession(error):
             return error?.localizedDescription ?? "Something went wrong"
         }
     }
-    
-    //Debugging description
+
+    // Debugging description
     var description: String {
         switch self {
-        case .parsing(let error):
+        case let .parsing(error):
             return "parsing error: \(String(describing: error))"
         case .badUrl:
             return "wrong URL"
-        case .urlSession(let error):
+        case let .urlSession(error):
             return error?.localizedDescription ?? "Error URL session"
         case .undefined:
             return "unknown error"
-        case .response(statusCode: let statusCode):
+        case let .response(statusCode: statusCode):
             return "response error with code: \(statusCode)"
         }
     }
 }
-

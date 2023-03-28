@@ -8,39 +8,40 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
     @AppStorage("isDarkMode") private var isDarkMode = false
-    
+
     var body: some View {
-        NavigationView{
-            VStack{
-                List{
+        NavigationView {
+            VStack {
+                List {
                     Toggle(isOn: $isDarkMode) {
-                        ZStack{
+                        ZStack {
                             Rectangle()
                                 .frame(width: 36, height: 36)
                                 .cornerRadius(10)
                                 .foregroundColor(.blue)
-                            SwiftUI.Image(systemName:"sun.max")
+                            SwiftUI.Image(systemName: "sun.max")
                         }
                         Text("Dark Mode")
                             .fontWeight(.semibold)
                     }
-                    HStack{
-                        ZStack{
+                    HStack {
+                        ZStack {
                             Rectangle()
                                 .frame(width: 36, height: 36)
                                 .cornerRadius(10)
                                 .foregroundColor(.red)
-                            SwiftUI.Image(systemName:"flag")
+                            SwiftUI.Image(systemName: "flag")
                         }
                         Text("Language")
                             .fontWeight(.semibold)
                     }
-                }.listStyle(.plain)
+                }
+                .listStyle(.plain)
                 Spacer()
-            }.navigationTitle("Settings")
-                .padding()
+            }
+            .navigationTitle("Settings")
+            .padding()
         }
     }
 }

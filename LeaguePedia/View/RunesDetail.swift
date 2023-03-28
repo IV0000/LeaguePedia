@@ -8,40 +8,37 @@
 import SwiftUI
 
 struct RunesDetail: View {
-    var mainRune : MainRune
+    var mainRune: MainRune
     var body: some View {
-        ScrollView(showsIndicators: false){
-            VStack(alignment: .leading){
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading) {
                 Text("Keystones")
                     .fontWeight(.semibold)
                     .foregroundColor(.primary)
                     .font(.system(size: 20))
-                ScrollView(.horizontal,showsIndicators: false){
-                    HStack(spacing:20){
-                        ForEach(mainRune.slots.first!.runes,id:\.self){runes in
-                            VStack(alignment: .leading){
-                                ZStack{
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(mainRune.slots.first!.runes, id: \.self) { runes in
+                            VStack(alignment: .leading) {
+                                ZStack {
                                     Rectangle()
                                         .cornerRadius(20)
                                         .foregroundColor(Color("cardColor"))
-                                    AsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/img/"+(runes.icon))){phase in
+                                    AsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/" + (runes.icon))) { phase in
                                         if let image = phase.image {
                                             image.resizable()
                                                 .scaledToFit()
                                                 .frame(width: 160, height: 160)
-                                        }
-                                        else if phase.error != nil {
+                                        } else if phase.error != nil {
                                             Color.red
                                                 .frame(width: 80, height: 80)
-                                            
-                                        }
-                                        else{
+                                        } else {
                                             ProgressView()
                                                 .frame(width: 80, height: 80)
                                         }
                                     }
-                                    
-                                }.frame(width: 320, height: 170, alignment: .center)
+                                }
+                                .frame(width: 320, height: 170, alignment: .center)
                                 Text(runes.name)
                                     .fontWeight(.semibold)
                                     .foregroundColor(.primary)
@@ -49,9 +46,10 @@ struct RunesDetail: View {
                                 Text(runes.longDesc.replacingOccurrences(of: "\\s?\\<[^>]*\\>", with: " ", options: .regularExpression))
                                     .foregroundColor(.secondary)
                                     .font(.system(size: 15))
-                                    .frame(alignment:.topLeading)
+                                    .frame(alignment: .topLeading)
                                 Spacer()
-                            }.frame(width: 320, alignment: .leading)
+                            }
+                            .frame(width: 320, alignment: .leading)
                         }
                     }
                     Spacer()
@@ -61,28 +59,25 @@ struct RunesDetail: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.primary)
                     .font(.system(size: 20))
-                
-                LazyVStack(alignment:.leading,spacing:20){
-                    ForEach(mainRune.slots.dropFirst(),id:\.self) {slots in
-                        ForEach(slots.runes,id:\.self){ rune in
-                            HStack{
-                                CacheAsyncImage(url : URL(string: "https://ddragon.leagueoflegends.com/cdn/img/"+(rune.icon))!){phase in
+
+                LazyVStack(alignment: .leading, spacing: 20) {
+                    ForEach(mainRune.slots.dropFirst(), id: \.self) { slots in
+                        ForEach(slots.runes, id: \.self) { rune in
+                            HStack {
+                                CacheAsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/" + (rune.icon))!) { phase in
                                     if let image = phase.image {
                                         image.resizable()
                                             .scaledToFit()
                                             .frame(width: 64, height: 64)
-                                    }
-                                    else if phase.error != nil {
+                                    } else if phase.error != nil {
                                         Color.red
                                             .frame(width: 64, height: 64)
-                                        
-                                    }
-                                    else{
+                                    } else {
                                         ProgressView()
                                             .frame(width: 64, height: 64)
                                     }
                                 }
-                                VStack(alignment:.leading){
+                                VStack(alignment: .leading) {
                                     Text(rune.name)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.primary)
@@ -90,9 +85,7 @@ struct RunesDetail: View {
                                     Text(rune.longDesc.replacingOccurrences(of: "\\s?\\<[^>]*\\>", with: " ", options: .regularExpression))
                                         .foregroundColor(.secondary)
                                         .font(.system(size: 15))
-                                    
                                 }
-                                
                             }
                             Divider()
                         }
@@ -100,14 +93,14 @@ struct RunesDetail: View {
                 }
             }
             Spacer()
-        }.navigationTitle(mainRune.name)
-            .padding()
+        }
+        .navigationTitle(mainRune.name)
+        .padding()
     }
 }
 
-
-//struct RunesDetail_Previews: PreviewProvider {
+// struct RunesDetail_Previews: PreviewProvider {
 //    static var previews: some View {
 //        RunesDetail(mainRune: )
 //    }
-//}
+// }

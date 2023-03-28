@@ -7,21 +7,21 @@
 
 import Foundation
 
-//struct RuneData: Codable,Hashable {
+// struct RuneData: Codable,Hashable {
 //    var mainRune: [MainRune]
-//}
+// }
 
-struct MainRune: Codable,Hashable {
+struct MainRune: Codable, Hashable {
     var id: Int
     var key, icon, name: String
     var slots: [Slot]
 }
 
-struct Slot: Codable,Hashable {
-    var runes : [Rune]
+struct Slot: Codable, Hashable {
+    var runes: [Rune]
 }
 
-struct Rune: Codable,Hashable {
+struct Rune: Codable, Hashable {
     var id: Int
     var key: String
     var icon: String

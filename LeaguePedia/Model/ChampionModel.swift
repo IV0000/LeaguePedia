@@ -10,6 +10,7 @@ import Foundation
 typealias Versions = [String]
 
 // MARK: - Champion
+
 struct Champion: Codable, Hashable {
     var type: TypeEnum
     var format: String
@@ -17,23 +18,25 @@ struct Champion: Codable, Hashable {
 }
 
 // MARK: - Datum
+
 struct Datum: Codable, Hashable {
-    //var version: String
+    // var version: String
     var id, key, name, title: String
     var lore: String
     var blurb: String
-    var allytips : [String]
-    var enemytips : [String]
+    var allytips: [String]
+    var enemytips: [String]
     var info: Info
     var image: Image
     var tags: [String]
     var spells: [Spell]
-    var passive : Passive
+    var passive: Passive
     var partype: String
     var stats: [String: Double]
 }
 
 // MARK: - Spell
+
 struct Spell: Codable, Hashable {
     var id, name, spellDescription, tooltip: String
     var maxrank: Int
@@ -50,14 +53,17 @@ struct Spell: Codable, Hashable {
         case tooltip, maxrank, cooldown, cost, costBurn, costType, maxammo, image, resource
     }
 }
+
 // MARK: - Passive
-struct Passive : Codable,Hashable{
-    var name : String
-    var description : String
-    var image : Image
+
+struct Passive: Codable, Hashable {
+    var name: String
+    var description: String
+    var image: Image
 }
 
 // MARK: - Image
+
 struct Image: Codable, Hashable {
     var full: String
     var sprite: String
@@ -66,11 +72,12 @@ struct Image: Codable, Hashable {
 }
 
 enum TypeEnum: String, Codable, Hashable {
-    case champion = "champion"
-    case spell = "spell"
+    case champion
+    case spell
 }
 
 // MARK: - Info
+
 struct Info: Codable, Hashable {
     var attack, defense, magic, difficulty: Int
 }

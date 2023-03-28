@@ -7,18 +7,16 @@
 
 import Foundation
 
-struct ApiManager{
-
-    func fetchAPI<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T,NetworkError>) -> Void) {
-        
+struct ApiManager {
+    func fetchAPI<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = url else {
             let error = NetworkError.badUrl
             completion(Result.failure(error))
             return
         }
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let response = response as? HTTPURLResponse,!(200...299).contains(response.statusCode) {
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let response = response as? HTTPURLResponse,!(200 ... 299).contains(response.statusCode) {
                 completion(Result.failure(NetworkError.response(statusCode: response.statusCode)))
             } else if let error = error as? URLError {
                 completion(Result.failure(NetworkError.urlSession(error)))
@@ -27,12 +25,11 @@ struct ApiManager{
                 do {
                     let result = try decoder.decode(type, from: data)
                     completion(Result.success(result))
-                }catch {
+                } catch {
                     completion(Result.failure(NetworkError.parsing(error as? DecodingError)))
                 }
             }
         }
         task.resume()
     }
-    
 }
